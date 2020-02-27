@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">AndreiNikolaev</string>
+
+    <string-array name="Info">
+        <item>ФИО!Николаев Андрей Отчество</item>
+        <item>Дата Рождения!14.07.2000</item>
+        <item>Водительское удостоверение!1337420691488228</item>
+        <item>Паспорт!Бессрочно</item>
+        <item>Водительское Удостоверение!Навсгда</item>
+    </string-array>>
+    <string-array name="Dates">
+    <item>19.01.22!11:30</item>
+    <item>19.01.22!11:31</item>
+    <item>19.01.22!11:32</item>
+    <item>19.01.22!11:33</item>
+    <item>19.01.22!11:34</item>
+    <item>19.01.22!11:35</item>
+    <item>19.01.22!11:36</item>
+    <item>19.01.22!11:37</item>
+    <item>19.01.22!11:38</item>
+    <item>19.01.22!11:39</item>
+    <item>19.01.22!11:40</item>
+    <item>19.01.22!11:41</item>
+        <item>end!end</item>
+    </string-array>
+</resources>
