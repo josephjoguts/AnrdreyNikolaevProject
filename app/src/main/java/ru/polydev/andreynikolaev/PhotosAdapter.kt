@@ -1,45 +1,34 @@
 package ru.polydev.andreynikolaev
 
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 
 class PhotosAdapter(private val dataSet: Array<Int>) :
-    RecyclerView.Adapter<PhotosAdapter.ImageView>() {
+    RecyclerView.Adapter<PhotosAdapter.Andrei>() {
 
     /**
      * Provide a reference to the type of views that you are using (custom ViewHolder)
      */
 
 
-    class ImageView(var v: android.widget.ImageView) : RecyclerView.ViewHolder(v)
-    {
-
-        init {
-
-
-        }
-
-
-    }
+    class Andrei(var v: android.widget.ImageView) : RecyclerView.ViewHolder(v) {}
 
     // Create new views (invoked by the layout manager)
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ImageView {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): Andrei {
         // Create a new view.
         val v = ImageView(viewGroup.context)
         v.layoutParams = LinearLayout.LayoutParams(600 ,400)
 
-        return ImageView(v)
+        return Andrei(v)
     }
 
+
+
     // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(viewHolder: ImageView, position: Int) {
+    override fun onBindViewHolder(viewHolder: Andrei, position: Int) {
         //Log.d(TAG, "Element $position set.")
 
         // Get element from your dataset at this position and replace the contents of the view

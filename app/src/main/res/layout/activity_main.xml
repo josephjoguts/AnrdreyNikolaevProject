@@ -7,37 +7,45 @@
 
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="always">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:id="@+id/Images"
-        android:scrollbars="horizontal"
-
-        android:layout_weight="2.25"
-        />
+        android:scrollbars="horizontal"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:id="@+id/Info"
-        android:scrollbars="vertical"
-
-        android:layout_weight="3"/>
+        android:scrollbars="vertical"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:id="@+id/Dates"
         android:scrollbars="vertical"
         android:background="#D3D3D3"
-        android:layout_weight="3"/>
+        />
+
     <Button
-        android:layout_width="150dp"
-        android:layout_height="0dp"
-        android:layout_weight="0.6"
         android:id="@+id/addNew"
-        android:text="Загрузить еще"
-        android:layout_gravity="center"/>
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:text="Загрузить еще" />
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>
+
 </LinearLayout>

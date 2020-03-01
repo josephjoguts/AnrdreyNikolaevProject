@@ -12,52 +12,30 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
-    private  lateinit var imagesView:RecyclerView
-    private  lateinit var imagesViewAdapter:RecyclerView.Adapter<*>
-    private  lateinit var imagesmanager:RecyclerView.LayoutManager
-    private lateinit var infoView:RecyclerView
-    private lateinit var infoviewAdapter: RecyclerView.Adapter<*>
-    private lateinit var infoManager: RecyclerView.LayoutManager
-    private lateinit var dateView:RecyclerView
-    private lateinit var dateViewAdapter:RecyclerView.Adapter<*>
-    private lateinit var dateManager: RecyclerView.LayoutManager
     private  var add  =5;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        imagesView = Images
         val lst = arrayOf(R.drawable.p1,R.drawable.p2,R.drawable.p3)
-        imagesViewAdapter=PhotosAdapter(lst)
-        imagesmanager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-        imagesView.apply{
+        Images.apply{
             setHasFixedSize(true)
-            layoutManager = imagesmanager;
-            adapter =imagesViewAdapter;
+            layoutManager = LinearLayoutManager(this@MainActivity,LinearLayoutManager.HORIZONTAL,false);
+            adapter =PhotosAdapter(lst);
+        }
+        Info.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
+        Info.apply{
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this@MainActivity);
+            adapter =InFoAdapter(Info(0));
         }
 
 
-        infoManager = LinearLayoutManager(this)
-        infoView = Info
-        infoviewAdapter = InFoAdapter(Info(0));
-        infoView.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
-        infoView.apply{
+        Dates.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
+        Dates.apply{
             setHasFixedSize(true)
-            layoutManager = infoManager;
-            adapter =infoviewAdapter;
+            layoutManager = LinearLayoutManager(this@MainActivity);
+            adapter =DateViewAdapter(Info(1));
         }
-
-
-        dateView = Dates;
-        dateViewAdapter = DateViewAdapter(Info(1))
-        dateManager = LinearLayoutManager(this)
-        dateView.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
-        dateView.apply{
-            setHasFixedSize(true)
-            layoutManager = dateManager;
-            adapter =dateViewAdapter;
-        }
-
 
         val butt:Button = addNew
         butt.setOnClickListener(object:View.OnClickListener{
@@ -68,24 +46,17 @@ class MainActivity : AppCompatActivity() {
                 if(addition.last()[0].equals("end"))
                 {
                 addition = addition.sliceArray(0..addition.size-2)
-                dateViewAdapter = DateViewAdapter(addition)
-                dateView.adapter = dateViewAdapter
+                Dates.adapter = DateViewAdapter(addition)
                 val t:ViewGroup = v?.parent as ViewGroup
                 t.removeView(v);
                 }
                 else
                 {
-                    dateViewAdapter = DateViewAdapter(addition)
-                    dateView.adapter = dateViewAdapter
+                    Dates.adapter = DateViewAdapter(addition)
                 }
-
-
             }
 
         })
-
-
-
     }
     fun Info(which:Int):Array<Array<String>>
     {
