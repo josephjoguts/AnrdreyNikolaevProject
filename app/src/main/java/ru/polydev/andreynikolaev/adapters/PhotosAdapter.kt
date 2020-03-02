@@ -1,4 +1,4 @@
-package ru.polydev.andreynikolaev
+package ru.polydev.andreynikolaev.adapters
 
 import android.view.ViewGroup
 import android.widget.ImageView

@@ -18,25 +18,25 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Images"
+        android:id="@+id/ImagesRecycleView"
         android:scrollbars="horizontal"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Info"
+        android:id="@+id/InfoRecycleView"
         android:scrollbars="vertical"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Dates"
+        android:id="@+id/DatesRecycleView"
         android:scrollbars="vertical"
         android:background="#D3D3D3"
         />
 
     <Button
-        android:id="@+id/addNew"
+        android:id="@+id/addNewButton"
         android:layout_width="match_parent"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"

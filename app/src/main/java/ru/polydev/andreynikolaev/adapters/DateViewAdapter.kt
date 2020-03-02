@@ -1,14 +1,15 @@
-package ru.polydev.andreynikolaev
+package ru.polydev.andreynikolaev.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ru.polydev.andreynikolaev.R
 
-class InFoAdapter(private val dataSet: Array<Array<String>>) :
-    RecyclerView.Adapter<InFoAdapter.ViewHolder>() {
+
+class DateViewAdapter(private val dataSet: Array<Array<String>>) :
+    RecyclerView.Adapter<DateViewAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using (custom ViewHolder)
@@ -17,11 +18,13 @@ class InFoAdapter(private val dataSet: Array<Array<String>>) :
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v)
     {
-        val type:TextView;
-        val info:TextView;
+        val date:TextView;
+
+        val time:TextView;
         init {
-            type = v.findViewById(R.id.Type)
-            info =v.findViewById(R.id.Info)
+
+            date = v.findViewById(R.id.date)
+            time =v.findViewById(R.id.time)
         }
 
 
@@ -30,8 +33,12 @@ class InFoAdapter(private val dataSet: Array<Array<String>>) :
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view.
-        val v = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.info_view, viewGroup, false)
+        val v = when(viewType)
+        {
+            0 -> LayoutInflater.from(viewGroup.context).inflate(R.layout.dates_first,viewGroup,false)
+            1->  LayoutInflater.from(viewGroup.context).inflate(R.layout.dates_others,viewGroup,false)
+            else ->LayoutInflater.from(viewGroup.context).inflate(R.layout.dates_others,viewGroup,false)
+        }
 
         return ViewHolder(v)
     }
@@ -43,8 +50,9 @@ class InFoAdapter(private val dataSet: Array<Array<String>>) :
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
         //viewHolder.textView.text = dataSet[position]
-        viewHolder.type.text = dataSet[position][0]
-        viewHolder.info.text = dataSet[position][1]
+
+        viewHolder.date.text = dataSet[position][0]
+        viewHolder.time.text = dataSet[position][1]
 
     }
 
@@ -52,7 +60,13 @@ class InFoAdapter(private val dataSet: Array<Array<String>>) :
     override fun getItemCount() = dataSet.size
 
     override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
+       if(position == 0)
+       {
+           return 0;
+
+       }
+        else return 1;
+
     }
 
     companion object {
