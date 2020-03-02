@@ -44,7 +44,14 @@ class Presenter(val context:Context):Contract.Presenter{
         when(which)
         {
             0-> mView?.showInfoRecycle(mRepository.loadInfo(which,nowSeen,context))
-            1-> mView?.showDatesRecycle(mRepository.loadInfo(which,nowSeen,context))
+            1-> {
+                var arr =mRepository.loadInfo(which,nowSeen,context);
+                 if(arr.last()[0].equals("end"))
+                {
+                    arr = arr.sliceArray(0..arr.size-2)
+                }
+                mView?.showDatesRecycle(arr)
+            }
             else-> mView?.showDatesRecycle(mRepository.loadInfo(which,nowSeen,context))
         }
 
